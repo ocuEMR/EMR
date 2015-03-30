@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditMedicineTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditMedicineLabel_scientificName}" for="scientificName" />
+                    <h:inputText id="scientificName" value="#{medicineController.selected.scientificName}" title="#{bundle.EditMedicineTitle_scientificName}" />
+                    <h:outputLabel value="#{bundle.EditMedicineLabel_commercialName}" for="commercialName" />
+                    <h:inputText id="commercialName" value="#{medicineController.selected.commercialName}" title="#{bundle.EditMedicineTitle_commercialName}" />
+                </h:panelGrid>
+                <h:commandLink action="#{medicineController.update}" value="#{bundle.EditMedicineSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditMedicineViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{medicineController.prepareList}" value="#{bundle.EditMedicineShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditMedicineIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

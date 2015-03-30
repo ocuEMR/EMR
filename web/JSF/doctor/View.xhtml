@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewDoctorTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewDoctorLabel_firstName}"/>
+                    <h:outputText value="#{doctorController.selected.firstName}" title="#{bundle.ViewDoctorTitle_firstName}"/>
+                    <h:outputText value="#{bundle.ViewDoctorLabel_lastName}"/>
+                    <h:outputText value="#{doctorController.selected.lastName}" title="#{bundle.ViewDoctorTitle_lastName}"/>
+                    <h:outputText value="#{bundle.ViewDoctorLabel_speciality}"/>
+                    <h:outputText value="#{doctorController.selected.specialist.toString()}" title="#{bundle.ViewDoctorTitle_speciality}"/>
+                    <h:outputText value="#{bundle.ViewDoctorLabel_birthDate}"/>
+                    <h:outputText value="#{doctorController.selected.birthDate}" title="#{bundle.ViewDoctorTitle_birthDate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewDoctorLabel_placeOfBirth}"/>
+                    <h:outputText value="#{doctorController.selected.placeOfBirth}" title="#{bundle.ViewDoctorTitle_placeOfBirth}"/>
+                    <h:outputText value="#{bundle.ViewDoctorLabel_fatherName}"/>
+                    <h:outputText value="#{doctorController.selected.fatherName}" title="#{bundle.ViewDoctorTitle_fatherName}"/>
+                    <h:outputText value="#{bundle.ViewDoctorLabel_motherName}"/>
+                    <h:outputText value="#{doctorController.selected.motherName}" title="#{bundle.ViewDoctorTitle_motherName}"/>
+                    <h:outputText value="#{bundle.ViewDoctorLabel_gender}"/>
+                    <h:outputText value="#{doctorController.selected.gender}" title="#{bundle.ViewDoctorTitle_gender}"/>
+                    <h:outputText value="#{bundle.ViewDoctorLabel_phoneNumber}"/>
+                    <h:outputText value="#{doctorController.selected.phoneNumber}" title="#{bundle.ViewDoctorTitle_phoneNumber}"/>
+                    <h:outputText value="#{bundle.ViewDoctorLabel_email}"/>
+                    <h:outputText value="#{doctorController.selected.email}" title="#{bundle.ViewDoctorTitle_email}"/>
+                    <h:outputText value="#{bundle.ViewDoctorLabel_maritalStatus}"/>
+                    <h:outputText value="#{doctorController.selected.maritalStatus}" title="#{bundle.ViewDoctorTitle_maritalStatus}"/>
+                    <h:outputText value="#{bundle.ViewDoctorLabel_nationality}"/>
+                    <h:outputText value="#{doctorController.selected.nationality}" title="#{bundle.ViewDoctorTitle_nationality}"/>
+                    <h:outputText value="#{bundle.ViewDoctorLabel_address}"/>
+                    <h:outputText value="#{doctorController.selected.address}" title="#{bundle.ViewDoctorTitle_address}"/>
+                    
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{doctorController.destroyAndView}" value="#{bundle.ViewDoctorDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewDoctorEditLink}"/>
+                <br />
+                <h:commandLink action="#{doctorController.prepareCreate}" value="#{bundle.ViewDoctorCreateLink}" />
+                <br />
+                <h:commandLink action="#{doctorController.prepareList}" value="#{bundle.ViewDoctorShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewDoctorIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

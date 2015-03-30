@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewPatientDemographicTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewPatientDemographicLabel_bloodType}"/>
+                    <h:outputText value="#{patientDemographicController.selected.bloodType}" title="#{bundle.ViewPatientDemographicTitle_bloodType}"/>
+                    <h:outputText value="#{bundle.ViewPatientDemographicLabel_dnaForm}"/>
+                    <h:outputText value="#{patientDemographicController.selected.dnaForm}" title="#{bundle.ViewPatientDemographicTitle_dnaForm}"/>
+                    <h:outputText value="#{bundle.ViewPatientDemographicLabel_firstName}"/>
+                    <h:outputText value="#{patientDemographicController.selected.firstName}" title="#{bundle.ViewPatientDemographicTitle_firstName}"/>
+                    <h:outputText value="#{bundle.ViewPatientDemographicLabel_lastName}"/>
+                    <h:outputText value="#{patientDemographicController.selected.lastName}" title="#{bundle.ViewPatientDemographicTitle_lastName}"/>
+                    <h:outputText value="#{bundle.ViewPatientDemographicLabel_birthDate}"/>
+                    <h:outputText value="#{patientDemographicController.selected.birthDate}" title="#{bundle.ViewPatientDemographicTitle_birthDate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewPatientDemographicLabel_placeOfBirth}"/>
+                    <h:outputText value="#{patientDemographicController.selected.placeOfBirth}" title="#{bundle.ViewPatientDemographicTitle_placeOfBirth}"/>
+                    <h:outputText value="#{bundle.ViewPatientDemographicLabel_fatherName}"/>
+                    <h:outputText value="#{patientDemographicController.selected.fatherName}" title="#{bundle.ViewPatientDemographicTitle_fatherName}"/>
+                    <h:outputText value="#{bundle.ViewPatientDemographicLabel_motherName}"/>
+                    <h:outputText value="#{patientDemographicController.selected.motherName}" title="#{bundle.ViewPatientDemographicTitle_motherName}"/>
+                    <h:outputText value="#{bundle.ViewPatientDemographicLabel_gender}"/>
+                    <h:outputText value="#{patientDemographicController.selected.gender}" title="#{bundle.ViewPatientDemographicTitle_gender}"/>
+                    <h:outputText value="#{bundle.ViewPatientDemographicLabel_phoneNumber}"/>
+                    <h:outputText value="#{patientDemographicController.selected.phoneNumber}" title="#{bundle.ViewPatientDemographicTitle_phoneNumber}"/>
+                    <h:outputText value="#{bundle.ViewPatientDemographicLabel_email}"/>
+                    <h:outputText value="#{patientDemographicController.selected.email}" title="#{bundle.ViewPatientDemographicTitle_email}"/>
+                    <h:outputText value="#{bundle.ViewPatientDemographicLabel_maritalStatus}"/>
+                    <h:outputText value="#{patientDemographicController.selected.maritalStatus}" title="#{bundle.ViewPatientDemographicTitle_maritalStatus}"/>
+                    <h:outputText value="#{bundle.ViewPatientDemographicLabel_nationality}"/>
+                    <h:outputText value="#{patientDemographicController.selected.nationality}" title="#{bundle.ViewPatientDemographicTitle_nationality}"/>
+                    <h:outputText value="#{bundle.ViewPatientDemographicLabel_address}"/>
+                    <h:outputText value="#{patientDemographicController.selected.address}" title="#{bundle.ViewPatientDemographicTitle_address}"/>
+                    <h:outputText value="#{bundle.ViewPatientDemographicLabel_nsn}"/>
+                    <h:outputText value="#{patientDemographicController.selected.nsn}" title="#{bundle.ViewPatientDemographicTitle_nsn}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{patientDemographicController.destroyAndView}" value="#{bundle.ViewPatientDemographicDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewPatientDemographicEditLink}"/>
+                <br />
+                <h:commandLink action="#{patientDemographicController.prepareCreate}" value="#{bundle.ViewPatientDemographicCreateLink}" />
+                <br />
+                <h:commandLink action="#{patientDemographicController.prepareList}" value="#{bundle.ViewPatientDemographicShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewPatientDemographicIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

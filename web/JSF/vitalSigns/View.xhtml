@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewVitalSignsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewVitalSignsLabel_pressure}"/>
+                    <h:outputText value="#{vitalSignsController.selected.pressure}" title="#{bundle.ViewVitalSignsTitle_pressure}"/>
+                    <h:outputText value="#{bundle.ViewVitalSignsLabel_temperature}"/>
+                    <h:outputText value="#{vitalSignsController.selected.temperature}" title="#{bundle.ViewVitalSignsTitle_temperature}"/>
+                    <h:outputText value="#{bundle.ViewVitalSignsLabel_pulsation}"/>
+                    <h:outputText value="#{vitalSignsController.selected.pulsation}" title="#{bundle.ViewVitalSignsTitle_pulsation}"/>
+                    <h:outputText value="#{bundle.ViewVitalSignsLabel_conscious}"/>
+                    <h:outputText value="#{vitalSignsController.selected.conscious}" title="#{bundle.ViewVitalSignsTitle_conscious}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{vitalSignsController.destroyAndView}" value="#{bundle.ViewVitalSignsDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewVitalSignsEditLink}"/>
+                <br />
+                <h:commandLink action="#{vitalSignsController.prepareCreate}" value="#{bundle.ViewVitalSignsCreateLink}" />
+                <br />
+                <h:commandLink action="#{vitalSignsController.prepareList}" value="#{bundle.ViewVitalSignsShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewVitalSignsIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

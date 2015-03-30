@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditCitizenTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditCitizenLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{citizenController.selected.id}" title="#{bundle.EditCitizenTitle_id}" required="true" requiredMessage="#{bundle.EditCitizenRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditCitizenLabel_nsn}" for="nsn" />
+                    <h:inputText id="nsn" value="#{citizenController.selected.nsn}" title="#{bundle.EditCitizenTitle_nsn}" />
+                    <h:outputLabel value="#{bundle.EditCitizenLabel_firstName}" for="firstName" />
+                    <h:inputText id="firstName" value="#{citizenController.selected.firstName}" title="#{bundle.EditCitizenTitle_firstName}" />
+                    <h:outputLabel value="#{bundle.EditCitizenLabel_lastName}" for="lastName" />
+                    <h:inputText id="lastName" value="#{citizenController.selected.lastName}" title="#{bundle.EditCitizenTitle_lastName}" />
+                    <h:outputLabel value="#{bundle.EditCitizenLabel_birthDate}" for="birthDate" />
+                    <h:inputText id="birthDate" value="#{citizenController.selected.birthDate}" title="#{bundle.EditCitizenTitle_birthDate}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditCitizenLabel_placeOfBirth}" for="placeOfBirth" />
+                    <h:inputText id="placeOfBirth" value="#{citizenController.selected.placeOfBirth}" title="#{bundle.EditCitizenTitle_placeOfBirth}" />
+                    <h:outputLabel value="#{bundle.EditCitizenLabel_fatherName}" for="fatherName" />
+                    <h:inputText id="fatherName" value="#{citizenController.selected.fatherName}" title="#{bundle.EditCitizenTitle_fatherName}" />
+                    <h:outputLabel value="#{bundle.EditCitizenLabel_motherName}" for="motherName" />
+                    <h:inputText id="motherName" value="#{citizenController.selected.motherName}" title="#{bundle.EditCitizenTitle_motherName}" />
+                    <h:outputLabel value="#{bundle.EditCitizenLabel_gender}" for="gender" />
+                    <h:inputText id="gender" value="#{citizenController.selected.gender}" title="#{bundle.EditCitizenTitle_gender}" />
+                    <h:outputLabel value="#{bundle.EditCitizenLabel_phoneNumber}" for="phoneNumber" />
+                    <h:inputText id="phoneNumber" value="#{citizenController.selected.phoneNumber}" title="#{bundle.EditCitizenTitle_phoneNumber}" />
+                    <h:outputLabel value="#{bundle.EditCitizenLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{citizenController.selected.email}" title="#{bundle.EditCitizenTitle_email}" />
+                    <h:outputLabel value="#{bundle.EditCitizenLabel_maritalStatus}" for="maritalStatus" />
+                    <h:inputText id="maritalStatus" value="#{citizenController.selected.maritalStatus}" title="#{bundle.EditCitizenTitle_maritalStatus}" />
+                    <h:outputLabel value="#{bundle.EditCitizenLabel_nationality}" for="nationality" />
+                    <h:inputText id="nationality" value="#{citizenController.selected.nationality}" title="#{bundle.EditCitizenTitle_nationality}" />
+                    <h:outputLabel value="#{bundle.EditCitizenLabel_address}" for="address" />
+                    <h:inputText id="address" value="#{citizenController.selected.address}" title="#{bundle.EditCitizenTitle_address}" />
+                </h:panelGrid>
+                <h:commandLink action="#{citizenController.update}" value="#{bundle.EditCitizenSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditCitizenViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{citizenController.prepareList}" value="#{bundle.EditCitizenShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditCitizenIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

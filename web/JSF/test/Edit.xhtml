@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditTestTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditTestLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{testController.selected.name}" title="#{bundle.EditTestTitle_name}" />
+                    <h:outputLabel value="#{bundle.EditTestLabel_type}" for="type" />
+                    <h:inputText id="type" value="#{testController.selected.type}" title="#{bundle.EditTestTitle_type}" />
+                    <h:outputLabel value="#{bundle.EditTestLabel_result}" for="result" />
+                    <h:inputText id="result" value="#{testController.selected.result}" title="#{bundle.EditTestTitle_result}" />
+                </h:panelGrid>
+                <h:commandLink action="#{testController.update}" value="#{bundle.EditTestSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditTestViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{testController.prepareList}" value="#{bundle.EditTestShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditTestIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateXrayTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateXrayLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{xrayController.selected.name}" title="#{bundle.CreateXrayTitle_name}" />
+                    <h:outputLabel value="#{bundle.CreateXrayLabel_type}" for="type" />
+                    <h:inputText id="type" value="#{xrayController.selected.type}" title="#{bundle.CreateXrayTitle_type}" />
+                    <h:outputLabel value="#{bundle.CreateXrayLabel_result}" for="result" />
+                    <h:inputText id="result" value="#{xrayController.selected.result}" title="#{bundle.CreateXrayTitle_result}" />
+
+                    <p:fileUpload value="#{xrayController.file} " fileUploadListener="#{xrayController.handleFileUpload}"
+                                  mode="advanced"
+                                  update="messages"
+                                  sizeLimit="100000"
+                                  allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+
+
+                    <p:growl id="messages" showDetail="true"/> 
+
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{xrayController.create}" value="#{bundle.CreateXraySaveLink}" />
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreateXrayIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

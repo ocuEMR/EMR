@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateVisitTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateVisitLabel_diagnosis}" for="diagnosis" />
+                    <h:inputText id="diagnosis" value="#{visitController.selected.diagnosis}" title="#{bundle.CreateVisitTitle_diagnosis}" />
+                    <h:outputLabel value="#{bundle.CreateVisitLabel_xray}" for="xray" />
+                    <h:selectOneMenu id="xray" value="#{visitController.selected.xray}" title="#{bundle.CreateVisitTitle_xray}" >
+                        <f:selectItems value="#{xrayController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateVisitLabel_vitalSigns}" for="vitalSigns" />
+                    <h:selectOneMenu id="vitalSigns" value="#{visitController.selected.vitalSigns}" title="#{bundle.CreateVisitTitle_vitalSigns}" >
+                        <f:selectItems value="#{vitalSignsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateVisitLabel_test}" for="test" />
+                    <h:selectOneMenu id="test" value="#{visitController.selected.test}" title="#{bundle.CreateVisitTitle_test}" >
+                        <f:selectItems value="#{testController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateVisitLabel_disease}" for="disease" />
+                    <h:selectOneMenu id="disease" value="#{visitController.selected.disease}" title="#{bundle.CreateVisitTitle_disease}" >
+                        <f:selectItems value="#{diseaseController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateVisitLabel_allergy}" for="allergy" />
+                    <h:selectOneMenu id="allergy" value="#{visitController.selected.allergy}" title="#{bundle.CreateVisitTitle_allergy}" >
+                        <f:selectItems value="#{allergyController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateVisitLabel_treatment}" for="treatment" />
+                    <h:selectOneMenu id="treatment" value="#{visitController.selected.treatment}" title="#{bundle.CreateVisitTitle_treatment}" >
+                        <f:selectItems value="#{treatmentController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{visitController.create}" value="#{bundle.CreateVisitSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{visitController.prepareList}" value="#{bundle.CreateVisitShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreateVisitIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
