@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateMedicalTreatmentTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateMedicalTreatmentLabel_medication}" for="medication" />
+                    <h:selectOneMenu id="medical" value="#{medicalTreatmentController.selected.medication}" title="#{bundle.CreateTreatmentTitle_medical}" >
+                        <f:selectItems value="#{medicineController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateMedicalTreatmentLabel_dose}" for="dose" />
+                    <h:inputText id="dose" value="#{medicalTreatmentController.selected.dose}" title="#{bundle.CreateMedicalTreatmentTitle_dose}" />
+                    <h:outputLabel value="#{bundle.CreateMedicalTreatmentLabel_frequency}" for="frequency" />
+                    <h:inputText id="frequency" value="#{medicalTreatmentController.selected.frequency}" title="#{bundle.CreateMedicalTreatmentTitle_frequency}" />
+                    <h:outputLabel value="Start date MM/dd/yyyy" for="startDate" />
+                    <h:inputText id="startDate" value="#{medicalTreatmentController.selected.startDate}"  >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="End date MM/dd/yyyy" for="endDate" />
+                    <h:inputText id="endDate" value="#{medicalTreatmentController.selected.endDate}"  >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{medicalTreatmentController.create}" value="#{bundle.CreateMedicalTreatmentSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{medicalTreatmentController.prepareList}" value="#{bundle.CreateMedicalTreatmentShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreateMedicalTreatmentIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

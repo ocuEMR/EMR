@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="JSF/xray/List.xhtml" x="1650" y="600" zoom="true"/>
+        <Node id="JSF/nurse/Edit.xhtml" x="400" y="450" zoom="true"/>
+        <Node id="JSF/allergy/List.xhtml" x="1150" y="300" zoom="true"/>
+        <Node id="JSF/doctor/View.xhtml" x="1400" y="300" zoom="true"/>
+        <Node id="template_1.xhtml" x="2150" y="150" zoom="true"/>
+        <Node id="about.xhtml" x="1150" y="1050" zoom="true"/>
+        <Node id="JSF/allergy/Edit.xhtml" x="150" y="600" zoom="true"/>
+        <Node id="JSF/test/View.xhtml" x="2400" y="300" zoom="true"/>
+        <Node id="JSF/surgery/Create.xhtml" x="650" y="1050" zoom="true"/>
+        <Node id="JSF/visit/Edit.xhtml" x="2650" y="150" zoom="true"/>
+        <Node id="JSF/medicalTreatment/Edit.xhtml" x="1900" y="600" zoom="true"/>
+        <Node id="JSF/treatment/List.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="JSF/medicine/Edit.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="JSF/nurse/View.xhtml" x="900" y="150" zoom="true"/>
+        <Node id="JSF/allergy/Create.xhtml" x="650" y="600" zoom="true"/>
+        <Node id="JSF/doctor/Create.xhtml" x="150" y="1500" zoom="true"/>
+        <Node id="JSF/test/Edit.xhtml" x="2150" y="600" zoom="true"/>
+        <Node id="JSF/medicalTreatment/List.xhtml" x="1900" y="450" zoom="true"/>
+        <Node id="JSF/specialist/Edit.xhtml" x="650" y="750" zoom="true"/>
+        <Node id="JSF/xray/View.xhtml" x="1400" y="450" zoom="true"/>
+        <Node id="JSF/disease/List.xhtml" x="150" y="1050" zoom="true"/>
+        <Node id="JSF/surgery/Edit.xhtml" x="1400" y="750" zoom="true"/>
+        <Node id="JSF/medicine/List.xhtml" x="1650" y="750" zoom="true"/>
+        <Node id="JSF/medicalTreatment/View.xhtml" x="1400" y="600" zoom="true"/>
+        <Node id="JSF/surgery/List.xhtml" x="150" y="1350" zoom="true"/>
+        <Node id="JSF/medicine/View.xhtml" x="400" y="600" zoom="true"/>
+        <Node id="JSF/doctor/List.xhtml" x="1150" y="1200" zoom="true"/>
+        <Node id="JSF/medicalTreatment/Create.xhtml" x="650" y="450" zoom="true"/>
+        <Node id="JSF/vitalSigns/List.xhtml" x="400" y="900" zoom="true"/>
+        <Node id="images/saved_resource.htm" x="1150" y="750" zoom="true"/>
+        <Node id="JSF/disease/Edit.xhtml" x="1150" y="600" zoom="true"/>
+        <Node id="JSF/nurse/List.xhtml" x="150" y="450" zoom="true"/>
+        <Node id="JSF/vitalSigns/View.xhtml" x="400" y="1050" zoom="true"/>
+        <Node id="JSF/visit/Create.xhtml" x="900" y="1200" zoom="true"/>
+        <Node id="JSF/citizen/Create.xhtml" x="150" y="1650" zoom="true"/>
+        <Node id="template.xhtml" x="2900" y="150" zoom="true"/>
+        <Node id="template_.xhtml" x="400" y="750" zoom="true"/>
+        <Node id="images/like.htm" x="900" y="900" zoom="true"/>
+        <Node id="JSF/nurse/Create.xhtml" x="900" y="450" zoom="true"/>
+        <Node id="JSF/citizen/View.xhtml" x="150" y="1200" zoom="true"/>
+        <Node id="JSF/physicalTherapy/View.xhtml" x="1900" y="150" zoom="true"/>
+        <Node id="images/saved_resource.xhtml" x="1150" y="150" zoom="true"/>
+        <Node id="JSF/specialist/Create.xhtml" x="1400" y="900" zoom="true"/>
+        <Node id="JSF/physicalTherapy/Create.xhtml" x="48" y="256" zoom="true"/>
+        <Node id="JSF/xray/Edit.xhtml" x="1400" y="1050" zoom="true"/>
+        <Node id="JSF/disease/Create.xhtml" x="1900" y="750" zoom="true"/>
+        <Node id="JSF/patientDemographic/View.xhtml" x="400" y="1200" zoom="true"/>
+        <Node id="JSF/citizen/List.xhtml" x="1650" y="900" zoom="true"/>
+        <Node id="JSF/test/Create.xhtml" x="650" y="1350" zoom="true"/>
+        <Node id="JSF/visit/List.xhtml" x="1650" y="300" zoom="true"/>
+        <Node id="JSF/test/List.xhtml" x="1650" y="450" zoom="true"/>
+        <Node id="JSF/vitalSigns/Edit.xhtml" x="2150" y="450" zoom="true"/>
+        <Node id="JSF/disease/View.xhtml" x="650" y="900" zoom="true"/>
+        <Node id="JSF/allergy/View.xhtml" x="1400" y="150" zoom="true"/>
+        <Node id="JSF/specialist/List.xhtml" x="1150" y="900" zoom="true"/>
+        <Node id="JSF/specialist/View.xhtml" x="150" y="900" zoom="true"/>
+        <Node id="JSF/treatment/View.xhtml" x="2400" y="150" zoom="true"/>
+        <Node id="JSF/xray/Create.xhtml" x="900" y="600" zoom="true"/>
+        <Node id="JSF/patientDemographic/Visit.xhtml" x="400" y="1500" zoom="true"/>
+        <Node id="JSF/visit/View.xhtml" x="2650" y="300" zoom="true"/>
+        <Node id="main.xhtml" x="2150" y="300" zoom="true"/>
+        <Node id="JSF/medicine/Create.xhtml" x="900" y="750" zoom="true"/>
+        <Node id="JSF/citizen/Edit.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="JSF/vitalSigns/Create.xhtml" x="1150" y="450" zoom="true"/>
+        <Node id="JSF/surgery/View.xhtml" x="400" y="1350" zoom="true"/>
+        <Node id="index.xhtml" x="2400" y="450" zoom="true"/>
+        <Node id="JSF/physicalTherapy/Edit.xhtml" x="900" y="300" zoom="true"/>
+        <Node id="JSF/patientDemographic/Create.xhtml" x="150" y="750" zoom="true"/>
+        <Node id="JSF/physicalTherapy/List.xhtml" x="900" y="1050" zoom="true"/>
+        <Node id="JSF/treatment/Create.xhtml" x="650" y="300" zoom="true"/>
+        <Node id="JSF/patientDemographic/List.xhtml" x="650" y="1200" zoom="true"/>
+        <Node id="JSF/doctor/Edit.xhtml" x="1900" y="300" zoom="true"/>
+        <Node id="JSF/patientDemographic/Edit.xhtml" x="400" y="300" zoom="true"/>
+        <Node id="JSF/treatment/Edit.xhtml" x="1650" y="150" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>
