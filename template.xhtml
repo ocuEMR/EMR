@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<!-- saved from url=(0047)http://www.flashmint.com/template-demo-327.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"><h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+        <title>Family Therapeutist</title>
+<h:outputStylesheet name="css/jsfcrud.css"/>
+        <link href="" rel="alternate" type="application/rss+xml" title="RSS 2.0"/>
+        <link href="" rel="alternate" type="application/atom+xml" title="Atom 1.0"/>
+        
+        <link rel="stylesheet" href="/EMR/faces/images/constant.css" type="text/css"/>
+        <link rel="stylesheet" href="/EMR/faces/images/template.css" type="text/css"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+        <title>EMR</title>
+<h:outputStylesheet name="css/jsfcrud.css"/>
+        <link rel="stylesheet" href="/EMR/faces/images/style.css" type="text/css" media="screen" charset="utf-8"/>
+        <h:outputStylesheet name="/EMR/faces/images/jsfcrud.css"/>
+        <script type="text/javascript" charset="utf-8">
+            function rs()
+            {
+                $('#preview_frame').height($(window).height() - $('#preview_bar:visible').height());
+            }
+
+            $(function(){
+                rs();
+                $('#preview_hide a').click(function(){
+                    $('#preview_bar').hide();
+                    rs();
+                    return false;
+                });
+                $('#preview_buy a, #preview_logo a').click(function(){
+                    add_to_tm(327);
+                    return false;
+                });
+            });
+
+            $(window).resize(function() {
+                rs();
+            }).load(function() {
+                rs();
+            });
+
+            function cart(act, t){
+                document.getElementById('action').value = act;
+                document.getElementById('mitem_id').value = t;
+                document.getElementById('mitem').submit();
+            }
+	
+            function add_to_tm(id){
+                window.open('http://cart.template-guide.com/_to_tm.php?id=' + id, '_blank');
+                return;
+            }
+        </script>
+        <script type="text/javascript" async="" src="/EMR/faces/images/in.php"></script></h:head>
+    <body style="overflow: auto;">
+        <form id="mitem" action="http://www.flashmint.com/cart.php" method="post">
+            <input id="action" type="hidden" name="action" value=""/>
+            <input id="mitem_id" type="hidden" name="item_id" value=""/>
+        </form>
+        <div id="preview_bar">
+            <div id="preview_hide">
+                <a href="http://www.flashmint.com/template-demo-327.html#" class="pva"><img class="ai" src="/EMR/faces/images/preview_hide.png" border="0" alt=""/> Remove Frame</a>
+            </div>
+
+            <div id="fb_like">
+                <iframe src="/EMR/faces/images/like.htm" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:26px;" allowtransparency="true"></iframe>
+            </div>
+        </div>
+
+
+
+        <div class="main">
+            
+            <div id="wrapper">
+                <div class="indent">
+                    <div class="clear">
+                        <div id="flash">
+                            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,24" width="917" height="317">
+                                <param name="movie" value="/EMR/faces/images/header_v8.swf"/> 
+                                <param name="quality" value="high"/>
+                                <param name="menu" value="false"/>
+                                <param name="wmode" value="transparent"/>
+
+                                <object data="/EMR/faces/images/header_v8.swf" width="917" height="317" type="application/x-shockwave-flash">
+                                    <param name="quality" value="high"/>
+                                    <param name="menu" value="false"/>
+                                    <param name="pluginurl" value="http://www.macromedia.com/go/getflashplayer"/>
+                                    <param name="wmode" value="transparent"/>
+                                    FAIL (the browser should render some flash content, not this).
+                                </object>
+
+                            </object>
+                        </div>
+                        <div id="topMenu">
+                            <ul class="menu-nav"><li id="current" class="active item28"><a href="/EMR/faces/index.xhtml"><span>Home</span></a></li>
+                                <li class="item54"><a href=""><span>FAQ's</span></a></li>
+                                <li class="item55"><a href=""><span>Contacts</span></a></li>
+                                <li class="item56"><a href="/EMR"><span>Sign Out</span></a></li>
+                            </ul>
+                        </div>
+                        <div id="content">
+                            <div class="clear">
+                                <div id="left">
+                                    <div class="space">
+                                        <div class="width">
+                                            <div class="module_menu">
+                                                <div class="moduleBorder">
+
+                                                </div>
+                                            </div>
+
+
+                                        </div>	
+                                    </div>
+                                </div>
+
+                                <h1>Welcome to Medical website !</h1>
+                                <h:body>
+                                    <h1>
+                                        <ui:insert name="title">Default Title</ui:insert>
+                                    </h1>
+
+                                    <p>
+                                        <ui:insert name="body">Default Body</ui:insert>
+                                    </p>
+
+                                </h:body>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="footer">
+                <div class="space">
+                    Decision © 2012 | <a href="http://osc.template-help.com/joomla_27929/#">Privacy Policy</a>
+                    <br/><!--{%FOOTER_LINK} -->
+                </div>
+            </div>
+        </div>
+        
+        
+    </body></html>
