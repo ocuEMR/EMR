@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditDoctorTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditDoctorLabel_firstName}" for="firstName" />
+                    <h:inputText id="firstName" value="#{doctorController.selected.firstName}" title="#{bundle.EditDoctorTitle_firstName}" />
+                    <h:outputLabel value="#{bundle.EditDoctorLabel_lastName}" for="lastName" />
+                    <h:inputText id="lastName" value="#{doctorController.selected.lastName}" title="#{bundle.EditDoctorTitle_lastName}" />
+                    <h:outputLabel value="#{bundle.EditDoctorLabel_speciality}" for="speciality" />
+                    <h:selectOneMenu id="surgery" value="#{doctorController.selected.specialist}" title="#{bundle.CreateTreatmentTitle_surgery}" >
+                        <f:selectItems value="#{specialistController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditDoctorLabel_birthDate}" for="birthDate" />
+                    <h:inputText id="birthDate" value="#{doctorController.selected.birthDate}" title="#{bundle.EditDoctorTitle_birthDate}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditDoctorLabel_placeOfBirth}" for="placeOfBirth" />
+                    <h:inputText id="placeOfBirth" value="#{doctorController.selected.placeOfBirth}" title="#{bundle.EditDoctorTitle_placeOfBirth}" />
+                    <h:outputLabel value="#{bundle.EditDoctorLabel_fatherName}" for="fatherName" />
+                    <h:inputText id="fatherName" value="#{doctorController.selected.fatherName}" title="#{bundle.EditDoctorTitle_fatherName}" />
+                    <h:outputLabel value="#{bundle.EditDoctorLabel_motherName}" for="motherName" />
+                    <h:inputText id="motherName" value="#{doctorController.selected.motherName}" title="#{bundle.EditDoctorTitle_motherName}" />
+                    <h:outputLabel value="#{bundle.EditDoctorLabel_gender}" for="gender" />
+                    <h:inputText id="gender" value="#{doctorController.selected.gender}" title="#{bundle.EditDoctorTitle_gender}" />
+                    <h:outputLabel value="#{bundle.EditDoctorLabel_phoneNumber}" for="phoneNumber" />
+                    <h:inputText id="phoneNumber" value="#{doctorController.selected.phoneNumber}" title="#{bundle.EditDoctorTitle_phoneNumber}" />
+                    <h:outputLabel value="#{bundle.EditDoctorLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{doctorController.selected.email}" title="#{bundle.EditDoctorTitle_email}" />
+                    <h:outputLabel value="#{bundle.EditDoctorLabel_maritalStatus}" for="maritalStatus" />
+                    <h:inputText id="maritalStatus" value="#{doctorController.selected.maritalStatus}" title="#{bundle.EditDoctorTitle_maritalStatus}" />
+                    <h:outputLabel value="#{bundle.EditDoctorLabel_nationality}" for="nationality" />
+                    <h:inputText id="nationality" value="#{doctorController.selected.nationality}" title="#{bundle.EditDoctorTitle_nationality}" />
+                    <h:outputLabel value="#{bundle.EditDoctorLabel_address}" for="address" />
+                    <h:inputText id="address" value="#{doctorController.selected.address}" title="#{bundle.EditDoctorTitle_address}" />
+                    
+                </h:panelGrid>
+                <h:commandLink action="#{doctorController.update}" value="#{bundle.EditDoctorSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditDoctorViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{doctorController.prepareList}" value="#{bundle.EditDoctorShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditDoctorIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

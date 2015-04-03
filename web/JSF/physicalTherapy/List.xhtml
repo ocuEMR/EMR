@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListPhysicalTherapyTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListPhysicalTherapyEmpty}" rendered="#{physicalTherapyController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{physicalTherapyController.items.rowCount > 0}">
+                    <h:outputText value="#{physicalTherapyController.pagination.pageFirstItem + 1}..#{physicalTherapyController.pagination.pageLastItem + 1}/#{physicalTherapyController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{physicalTherapyController.previous}" value="#{bundle.Previous} #{physicalTherapyController.pagination.pageSize}" rendered="#{physicalTherapyController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{physicalTherapyController.next}" value="#{bundle.Next} #{physicalTherapyController.pagination.pageSize}" rendered="#{physicalTherapyController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{physicalTherapyController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPhysicalTherapyTitle_note}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.note}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{physicalTherapyController.prepareView}" value="#{bundle.ListPhysicalTherapyViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{physicalTherapyController.prepareEdit}" value="#{bundle.ListPhysicalTherapyEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{physicalTherapyController.destroy}" value="#{bundle.ListPhysicalTherapyDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{physicalTherapyController.prepareCreate}" value="#{bundle.ListPhysicalTherapyCreateLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ListPhysicalTherapyIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

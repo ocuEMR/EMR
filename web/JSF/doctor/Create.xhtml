@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateDoctorTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateDoctorLabel_speciality}" for="speciality" />
+                    <h:selectOneMenu id="surgery" value="#{doctorController.selected.specialist}" title="#{bundle.CreateTreatmentTitle_surgery}" >
+                        <f:selectItems value="#{specialistController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateDoctorLabel_firstName}" for="firstName" />
+                    <h:inputText id="firstName" value="#{doctorController.selected.firstName}" title="#{bundle.CreateDoctorTitle_firstName}" />
+                    <h:outputLabel value="#{bundle.CreateDoctorLabel_lastName}" for="lastName" />
+                    <h:inputText id="lastName" value="#{doctorController.selected.lastName}" title="#{bundle.CreateDoctorTitle_lastName}" />
+                    <h:outputLabel value="#{bundle.CreateDoctorLabel_birthDate}" for="birthDate" />
+                    <h:inputText id="birthDate" value="#{doctorController.selected.birthDate}" title="#{bundle.CreateDoctorTitle_birthDate}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateDoctorLabel_placeOfBirth}" for="placeOfBirth" />
+                    <h:inputText id="placeOfBirth" value="#{doctorController.selected.placeOfBirth}" title="#{bundle.CreateDoctorTitle_placeOfBirth}" />
+                    <h:outputLabel value="#{bundle.CreateDoctorLabel_fatherName}" for="fatherName" />
+                    <h:inputText id="fatherName" value="#{doctorController.selected.fatherName}" title="#{bundle.CreateDoctorTitle_fatherName}" />
+                    <h:outputLabel value="#{bundle.CreateDoctorLabel_motherName}" for="motherName" />
+                    <h:inputText id="motherName" value="#{doctorController.selected.motherName}" title="#{bundle.CreateDoctorTitle_motherName}" />
+                    <h:outputLabel value="#{bundle.CreateDoctorLabel_gender}" for="gender" />
+                    <h:inputText id="gender" value="#{doctorController.selected.gender}" title="#{bundle.CreateDoctorTitle_gender}" />
+                    <h:outputLabel value="#{bundle.CreateDoctorLabel_phoneNumber}" for="phoneNumber" />
+                    <h:inputText id="phoneNumber" value="#{doctorController.selected.phoneNumber}" title="#{bundle.CreateDoctorTitle_phoneNumber}" />
+                    <h:outputLabel value="#{bundle.CreateDoctorLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{doctorController.selected.email}" title="#{bundle.CreateDoctorTitle_email}" />
+                    <h:outputLabel value="#{bundle.CreateDoctorLabel_maritalStatus}" for="maritalStatus" />
+                    <h:inputText id="maritalStatus" value="#{doctorController.selected.maritalStatus}" title="#{bundle.CreateDoctorTitle_maritalStatus}" />
+                    <h:outputLabel value="#{bundle.CreateDoctorLabel_nationality}" for="nationality" />
+                    <h:inputText id="nationality" value="#{doctorController.selected.nationality}" title="#{bundle.CreateDoctorTitle_nationality}" />
+                    <h:outputLabel value="#{bundle.CreateDoctorLabel_address}" for="address" />
+                    <h:inputText id="address" value="#{doctorController.selected.address}" title="#{bundle.CreateDoctorTitle_address}" />
+                    <h:outputLabel value="User Name:"  />
+                    <h:inputText id="username" value="#{doctorController.selected.userName}" title="User Name" />
+                    <h:outputLabel value="Password:"  />
+                    <h:inputText id="password" value="#{doctorController.selected.passWord}" title="Password" />
+                    
+                    
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{doctorController.create}" value="#{bundle.CreateDoctorSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{doctorController.prepareList}" value="#{bundle.CreateDoctorShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreateDoctorIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

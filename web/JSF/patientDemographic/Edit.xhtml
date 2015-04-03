@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditPatientDemographicTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditPatientDemographicLabel_bloodType}" for="bloodType" />
+                    <h:inputText id="bloodType" value="#{patientDemographicController.selected.bloodType}" title="#{bundle.EditPatientDemographicTitle_bloodType}" />
+                    <h:outputLabel value="#{bundle.EditPatientDemographicLabel_dnaForm}" for="dnaForm" />
+                    <h:inputText id="dnaForm" value="#{patientDemographicController.selected.dnaForm}" title="#{bundle.EditPatientDemographicTitle_dnaForm}" />
+                    <h:outputLabel value="#{bundle.EditPatientDemographicLabel_firstName}" for="firstName" />
+                    <h:inputText id="firstName" value="#{patientDemographicController.selected.firstName}" title="#{bundle.EditPatientDemographicTitle_firstName}" />
+                    <h:outputLabel value="#{bundle.EditPatientDemographicLabel_lastName}" for="lastName" />
+                    <h:inputText id="lastName" value="#{patientDemographicController.selected.lastName}" title="#{bundle.EditPatientDemographicTitle_lastName}" />
+                    <h:outputLabel value="#{bundle.EditPatientDemographicLabel_birthDate}" for="birthDate" />
+                    <h:inputText id="birthDate" value="#{patientDemographicController.selected.birthDate}" title="#{bundle.EditPatientDemographicTitle_birthDate}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditPatientDemographicLabel_placeOfBirth}" for="placeOfBirth" />
+                    <h:inputText id="placeOfBirth" value="#{patientDemographicController.selected.placeOfBirth}" title="#{bundle.EditPatientDemographicTitle_placeOfBirth}" />
+                    <h:outputLabel value="#{bundle.EditPatientDemographicLabel_fatherName}" for="fatherName" />
+                    <h:inputText id="fatherName" value="#{patientDemographicController.selected.fatherName}" title="#{bundle.EditPatientDemographicTitle_fatherName}" />
+                    <h:outputLabel value="#{bundle.EditPatientDemographicLabel_motherName}" for="motherName" />
+                    <h:inputText id="motherName" value="#{patientDemographicController.selected.motherName}" title="#{bundle.EditPatientDemographicTitle_motherName}" />
+                    <h:outputLabel value="#{bundle.EditPatientDemographicLabel_gender}" for="gender" />
+                    <h:inputText id="gender" value="#{patientDemographicController.selected.gender}" title="#{bundle.EditPatientDemographicTitle_gender}" />
+                    <h:outputLabel value="#{bundle.EditPatientDemographicLabel_phoneNumber}" for="phoneNumber" />
+                    <h:inputText id="phoneNumber" value="#{patientDemographicController.selected.phoneNumber}" title="#{bundle.EditPatientDemographicTitle_phoneNumber}" />
+                    <h:outputLabel value="#{bundle.EditPatientDemographicLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{patientDemographicController.selected.email}" title="#{bundle.EditPatientDemographicTitle_email}" />
+                    <h:outputLabel value="#{bundle.EditPatientDemographicLabel_maritalStatus}" for="maritalStatus" />
+                    <h:inputText id="maritalStatus" value="#{patientDemographicController.selected.maritalStatus}" title="#{bundle.EditPatientDemographicTitle_maritalStatus}" />
+                    <h:outputLabel value="#{bundle.EditPatientDemographicLabel_nationality}" for="nationality" />
+                    <h:inputText id="nationality" value="#{patientDemographicController.selected.nationality}" title="#{bundle.EditPatientDemographicTitle_nationality}" />
+                    <h:outputLabel value="#{bundle.EditPatientDemographicLabel_address}" for="address" />
+                    <h:inputText id="address" value="#{patientDemographicController.selected.address}" title="#{bundle.EditPatientDemographicTitle_address}" />
+                    <h:outputLabel value="#{bundle.EditPatientDemographicLabel_nsn}" for="nsn" />
+                    <h:inputText id="nsn" value="#{patientDemographicController.selected.nsn}" title="#{bundle.EditPatientDemographicTitle_nsn}" />
+                        
+                </h:panelGrid>
+                <h:commandLink action="#{patientDemographicController.update}" value="#{bundle.EditPatientDemographicSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditPatientDemographicViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{patientDemographicController.prepareList}" value="#{bundle.EditPatientDemographicShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditPatientDemographicIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

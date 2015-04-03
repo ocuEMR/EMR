@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      >
+
+    <ui:composition  template="/template.xhtml" xmlns="http://www.w3.org/1999/xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateVisitTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <script type="text/javascript" >
+
+                function showDisease() {
+                    var vitality = document.getElementById("DiseaseDiv");
+                    var vitalityTitle = document.getElementById("DiseaseTitle");
+                    if(vitality.style.visibility != 'visible'){
+                        vitality.style.visibility = 'visible';
+                        vitality.style.paddingBottom = '75px';
+                        vitalityTitle.innerHTML = "Hide Disease";
+                    }else{
+                        vitality.style.visibility = 'hidden';
+                        vitality.style.paddingBottom = '0px';
+                        vitalityTitle.innerHTML = "Show Disease";
+                    }
+                }
+
+                function showXRAY() {
+                    var vitality = document.getElementById("XRAYdiv");
+                    var high = vitality.scrollHeight;
+                    var vitalityTitle = document.getElementById("XRAYTitle");
+                    if(vitality.style.visibility != 'visible'){
+                        vitality.style.visibility = 'visible';
+                        vitality.style.paddingBottom = high +'px';
+                        vitalityTitle.innerHTML = "Hide XRAY: ";
+                    }else{
+                        vitality.style.visibility = 'hidden';
+                        vitality.style.paddingBottom = '0px';
+                        vitalityTitle.innerHTML = "Show XRAY: ";
+                    }
+                }
+                
+                function showTest() {
+                    var vitality = document.getElementById("Testdiv");
+                    var high = vitality.scrollHeight;
+                    var vitalityTitle = document.getElementById("TestTitle");
+                    if(vitality.style.visibility != 'visible'){
+                        vitality.style.visibility = 'visible';
+                        vitality.style.paddingBottom = high +'px';
+                        vitalityTitle.innerHTML = "Hide Test: ";
+                    }else{
+                        vitality.style.visibility = 'hidden';
+                        vitality.style.paddingBottom = '0px';
+                        vitalityTitle.innerHTML = "Show Test: ";
+                    }
+                }
+
+                function showAllergy() {
+                    var vitality = document.getElementById("AllergyDiv");
+                    var high = vitality.scrollHeight;
+                    var vitalityTitle = document.getElementById("AllergyTitle");
+                    if(vitality.style.visibility != 'visible'){
+                        vitality.style.visibility = 'visible';
+                        vitality.style.paddingBottom = high +'px';
+                        vitalityTitle.innerHTML = "Hide Allergy: ";
+                    }else{
+                        vitality.style.visibility = 'hidden';
+                        vitality.style.paddingBottom = '0px';
+                        vitalityTitle.innerHTML = "Show Allergy: ";
+                    }
+                }
+
+                function showVital() {
+                    var vitality = document.getElementById("VitalDiv");
+                    var high = vitality.scrollHeight;
+                    var vitalityTitle = document.getElementById("VitalTitle");
+                    if(vitality.style.visibility != 'visible'){
+                        vitality.style.visibility = 'visible';
+                        vitality.style.paddingBottom = high +'px';
+                        vitalityTitle.innerHTML = "Hide VitalSigns:";
+                    }else{
+                        vitality.style.visibility = 'hidden';
+                        vitality.style.paddingBottom = '0px';
+                        vitalityTitle.innerHTML = "Show VitalSigns:";
+                    }
+                }
+                function showTreatment() {
+                    var vitality = document.getElementById("TreatmentDiv");
+                    var high = vitality.scrollHeight;
+                    var vitalityTitle = document.getElementById("TreatmentTitle");
+                    if(vitality.style.visibility != 'visible'){
+                        vitality.style.visibility = 'visible';
+                        vitality.style.paddingBottom = high +'px';
+                        vitalityTitle.innerHTML = "Hide Treatment:";
+                    }else{
+                        vitality.style.visibility = 'hidden';
+                        vitality.style.paddingBottom = '0px';
+                        vitalityTitle.innerHTML = "Show Treatment:";
+                    }
+                }
+            </script>
+
+
+            <h:form>
+
+
+                ----------------------------------------------
+                <br />
+                <h:commandLink action="#{xrayController.prepareCreateForVisit}" value="Take XRAY" style="font-style:italic " />
+
+
+
+                <h1><label id="XRAYTitle" style="color: darkorange;font-style: oblique ">Show XRAY:</label><input type="checkbox" name="vitalitycheckbox" value="ON"  onclick="javaScript:showXRAY()">
+                    </input></h1>
+
+
+                <div id="XRAYdiv" style="visibility: hidden; height: 0px">
+
+                    <p:dataTable value="#{xrayController.getCurrentXray()}" var="item"  style="border:solid 1px">
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Name"/>
+                            </f:facet>
+
+                            <h:outputText value="#{xrayController.getCurrentXray().name}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Type"/>
+                            </f:facet>
+                            <h:outputText value="#{xrayController.getCurrentXray().type}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Result"/>
+                            </f:facet>
+                            <h:outputText value="#{xrayController.getCurrentXray().result}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Photo"/>
+                            </f:facet>
+                            <p:column>
+                                <p:graphicImage value="#{xrayController.getImage(xrayController.getCurrentXray().id)}" cache=""/>
+                            </p:column>
+                        </p:column>
+                    </p:dataTable>
+
+
+                </div>
+                <br />
+                ---------------------------------------------
+
+                ----------------------------------------------
+                <br />
+                <h:commandLink action="#{testController.prepareCreateForVisit}" value="Take Test"  immediate="true" style="font-style:italic " 
+                               />
+
+                <h1><label id="TestTitle" style="color: darkorange;font-style: oblique ">Show Test: </label><input type="checkbox" name="vitalitycheckbox" value="ON"  onclick="javaScript:showTest()">
+                    </input></h1>
+
+
+                <div id="Testdiv" style="visibility: hidden; height: 0px">
+
+                    <p:dataTable value="#{testController.getCurrentTest()}"   var="item" style="border:solid 1px">
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Name"/>
+                            </f:facet>
+
+                            <h:outputText value="#{testController.getCurrentTest().name}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Type"/>
+                            </f:facet>
+                            <h:outputText value="#{testController.getCurrentTest().type}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Result"/>
+                            </f:facet>
+                            <h:outputText value="#{testController.getCurrentTest().result}"/>
+                        </p:column>
+                    </p:dataTable>
+
+
+                </div>
+                <br />
+                ---------------------------------------------
+
+                ----------------------------------------------
+                <br />
+                <h:commandLink action="#{allergyController.prepareCreateForVisit}" value="Add Allergy" style="font-style:italic " />
+
+                <h1><label id="AllergyTitle" style="color: darkorange;font-style: oblique ">Show Allergy: </label><input type="checkbox" name="allergycheckbox" value="ON"  onclick="javaScript:showAllergy()">
+                    </input></h1>
+
+
+                <div id="AllergyDiv" style="visibility: hidden; height: 0px">
+
+                    <p:dataTable value="#{allergyController.getCurrentAllergy()}"   var="item" style="border:solid 1px">
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Allergy"/>
+                            </f:facet>
+
+                            <h:outputText value="#{allergyController.getCurrentAllergy().allergy}"/>
+                        </p:column>
+
+                    </p:dataTable>
+
+
+                </div>
+                <br />
+                ---------------------------------------------
+                ---------------------------------------------
+
+                ----------------------------------------------
+                <br />
+                <h:commandLink action="#{vitalSignsController.prepareCreateForVisit}" value="Add VitalSigns" style="font-style:italic " />
+
+                <h1><label id="VitalTitle" style="color: darkorange;font-style: oblique ">Show VitalSigns: </label><input type="checkbox" name="vitalcheckbox" value="ON"  onclick="javaScript:showVital()">
+                    </input></h1>
+
+
+                <div id="VitalDiv" style="visibility: hidden; height: 0px">
+
+                    <p:dataTable value="#{vitalSignsController.getCurrentVital()}"   var="item" style="border:solid 1px">
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Pressure"/>
+                            </f:facet>
+
+                            <h:outputText value="#{vitalSignsController.getCurrentVital().pressure}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Pulsation"/>
+                            </f:facet>
+
+                            <h:outputText value="#{vitalSignsController.getCurrentVital().pulsation}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Temperature"/>
+                            </f:facet>
+
+                            <h:outputText value="#{vitalSignsController.getCurrentVital().temperature}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Conscious"/>
+                            </f:facet>
+
+                            <h:outputText value="#{vitalSignsController.getCurrentVital().conscious}"/>
+                        </p:column>
+
+                    </p:dataTable>
+
+
+                </div>
+                <br />
+                ---------------------------------------------
+                ---------------------------------------------
+
+                ----------------------------------------------
+                <br />
+                <h:commandLink action="#{diseaseController.prepareCreateForVisit}" value="Select Disease" style="font-style:italic " />
+
+                <h1><label id="DiseaseTitle" style="color: darkorange;font-style: oblique ">Show Disease: </label><input type="checkbox" name="diseasecheckbox" value="ON"  onclick="javaScript:showDisease()">
+                    </input></h1>
+
+
+                <div id="DiseaseDiv" style="visibility: hidden; height: 0px">
+
+                    <p:dataTable value="#{diseaseController.getCurrentDisease()}"   var="item" style="border:solid 1px">
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Desease"/>
+                            </f:facet>
+
+                            <h:outputText value="#{diseaseController.getCurrentDisease().type}"/>
+                        </p:column>
+
+                    </p:dataTable>
+
+
+                </div>
+                <br />
+                ---------------------------------------------
+                ----------------
+                 ----------------------------------------------
+                <br />
+                <h:commandLink action="#{medicalTreatmentController.prepareCreateForVisit}" value="Add Treatment" style="font-style:italic " />
+
+                <h1><label id="TreatmentTitle" style="color: darkorange;font-style: oblique ">Show Treatment: </label><input type="checkbox" name="treatmentcheckbox" value="ON"  onclick="javaScript:showTreatment()">
+                    </input></h1>
+
+
+                <div id="TreatmentDiv" style="visibility: hidden; height: 0px">
+
+                    <p:dataTable value="#{treatmentController.getCurrentTreatment()}"   var="item" style="border:solid 1px">
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Physical Therapy"/>
+                            </f:facet>
+
+                            <h:outputText value="#{treatmentController.getCurrentTreatment().physical.toString()}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Surgery"/>
+                            </f:facet>
+
+                            <h:outputText value="#{treatmentController.getCurrentTreatment().surgery.toString()}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Medicine Dosage"/>
+                            </f:facet>                          
+                            <h:outputText value="#{treatmentController.getCurrentTreatment().medical.getDose()}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Medicine Name"/>
+                            </f:facet>                          
+                            <h:outputText value="#{treatmentController.getCurrentTreatment().medical.medication.toString()}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Medicine Frequency"/>
+                            </f:facet>                          
+                            <h:outputText value="#{treatmentController.getCurrentTreatment().medical.frequency}"/>
+                        </p:column>
+
+                    </p:dataTable>
+
+
+                </div>
+                <br />
+                ---------------------------------------------
+                ----------------
+
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateVisitLabel_diagnosis}" for="diagnosis" />
+                    <h:inputTextarea id="type" value="#{visitController.selected.diagnosis}" title="#{bundle.CreateVisitLabel_diagnosis}" />
+                    
+
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{visitController.create}" value="#{bundle.CreateVisitSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreateVisitIndexLink}" action="#{visitController.prepareIndex()}" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

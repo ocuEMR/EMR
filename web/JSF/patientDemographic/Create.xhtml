@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreatePatientDemographicTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreatePatientDemographicLabel_firstName}" for="firstName" />
+                    <h:inputText id="firstName" value="#{patientDemographicController.selected.firstName}" title="#{bundle.CreatePatientDemographicTitle_firstName}" />
+                    <h:outputLabel value="#{bundle.CreatePatientDemographicLabel_lastName}" for="lastName" />
+                    <h:inputText id="lastName" value="#{patientDemographicController.selected.lastName}" title="#{bundle.CreatePatientDemographicTitle_lastName}" />
+                    
+                    <h:outputLabel value="User Name:" for="userName" />
+                    <h:inputText id="username" value="#{patientDemographicController.selected.userName}" title="User Name" />
+                    <h:outputLabel value="PassWord:" for="passWord" />
+                    <h:inputText id="password" value="#{patientDemographicController.selected.passWord}" title="PassWord" />
+                    
+                    <h:outputLabel value="#{bundle.CreatePatientDemographicLabel_bloodType}" for="bloodType" />
+                    <h:inputText id="bloodType" value="#{patientDemographicController.selected.bloodType}" title="#{bundle.CreatePatientDemographicTitle_bloodType}" />
+                    <h:outputLabel value="#{bundle.CreatePatientDemographicLabel_dnaForm}" for="dnaForm" />
+                    <h:inputText id="dnaForm" value="#{patientDemographicController.selected.dnaForm}" title="#{bundle.CreatePatientDemographicTitle_dnaForm}" />
+                    <h:outputLabel value="#{bundle.CreatePatientDemographicLabel_birthDate}MM/dd/yyyy" for="birthDate" />
+                    <h:inputText id="birthDate" value="#{patientDemographicController.selected.birthDate}" title="#{bundle.CreatePatientDemographicTitle_birthDate}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreatePatientDemographicLabel_placeOfBirth}" for="placeOfBirth" />
+                    <h:inputText id="placeOfBirth" value="#{patientDemographicController.selected.placeOfBirth}" title="#{bundle.CreatePatientDemographicTitle_placeOfBirth}" />
+                    <h:outputLabel value="#{bundle.CreatePatientDemographicLabel_fatherName}" for="fatherName" />
+                    <h:inputText id="fatherName" value="#{patientDemographicController.selected.fatherName}" title="#{bundle.CreatePatientDemographicTitle_fatherName}" />
+                    <h:outputLabel value="#{bundle.CreatePatientDemographicLabel_motherName}" for="motherName" />
+                    <h:inputText id="motherName" value="#{patientDemographicController.selected.motherName}" title="#{bundle.CreatePatientDemographicTitle_motherName}" />
+                    <h:outputLabel value="#{bundle.CreatePatientDemographicLabel_gender}" for="gender" />
+                    <h:inputText id="gender" value="#{patientDemographicController.selected.gender}" title="#{bundle.CreatePatientDemographicTitle_gender}" />
+                    <h:outputLabel value="#{bundle.CreatePatientDemographicLabel_phoneNumber}" for="phoneNumber" />
+                    <h:inputText id="phoneNumber" value="#{patientDemographicController.selected.phoneNumber}" title="#{bundle.CreatePatientDemographicTitle_phoneNumber}" />
+                    <h:outputLabel value="#{bundle.CreatePatientDemographicLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{patientDemographicController.selected.email}" title="#{bundle.CreatePatientDemographicTitle_email}" />
+                    <h:outputLabel value="#{bundle.CreatePatientDemographicLabel_maritalStatus}" for="maritalStatus" />
+                    <h:inputText id="maritalStatus" value="#{patientDemographicController.selected.maritalStatus}" title="#{bundle.CreatePatientDemographicTitle_maritalStatus}" />
+                    <h:outputLabel value="#{bundle.CreatePatientDemographicLabel_nationality}" for="nationality" />
+                    <h:inputText id="nationality" value="#{patientDemographicController.selected.nationality}" title="#{bundle.CreatePatientDemographicTitle_nationality}" />
+                    <h:outputLabel value="#{bundle.CreatePatientDemographicLabel_address}" for="address" />
+                    <h:inputText id="address" value="#{patientDemographicController.selected.address}" title="#{bundle.CreatePatientDemographicTitle_address}" />
+                    <h:outputLabel value="#{bundle.CreatePatientDemographicLabel_nsn}" for="nsn" />
+                    <h:inputText id="nsn" value="#{patientDemographicController.selected.nsn}" title="#{bundle.CreatePatientDemographicTitle_nsn}" />
+                        
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{patientDemographicController.create}" value="#{bundle.CreatePatientDemographicSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{patientDemographicController.prepareList}" value="#{bundle.CreatePatientDemographicShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreatePatientDemographicIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListMedicalTreatmentTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListMedicalTreatmentEmpty}" rendered="#{medicalTreatmentController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{medicalTreatmentController.items.rowCount > 0}">
+                    <h:outputText value="#{medicalTreatmentController.pagination.pageFirstItem + 1}..#{medicalTreatmentController.pagination.pageLastItem + 1}/#{medicalTreatmentController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{medicalTreatmentController.previous}" value="#{bundle.Previous} #{medicalTreatmentController.pagination.pageSize}" rendered="#{medicalTreatmentController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{medicalTreatmentController.next}" value="#{bundle.Next} #{medicalTreatmentController.pagination.pageSize}" rendered="#{medicalTreatmentController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{medicalTreatmentController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMedicalTreatmentTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMedicalTreatmentTitle_medication}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.medication}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMedicalTreatmentTitle_dose}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dose}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMedicalTreatmentTitle_frequency}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.frequency}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMedicalTreatmentTitle_date}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.date}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{medicalTreatmentController.prepareView}" value="#{bundle.ListMedicalTreatmentViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{medicalTreatmentController.prepareEdit}" value="#{bundle.ListMedicalTreatmentEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{medicalTreatmentController.destroy}" value="#{bundle.ListMedicalTreatmentDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{medicalTreatmentController.prepareCreate}" value="#{bundle.ListMedicalTreatmentCreateLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ListMedicalTreatmentIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

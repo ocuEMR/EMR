@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditNurseTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditNurseLabel_firstName}" for="firstName" />
+                    <h:inputText id="firstName" value="#{nurseController.selected.firstName}" title="#{bundle.EditNurseTitle_firstName}" />
+                    <h:outputLabel value="#{bundle.EditNurseLabel_lastName}" for="lastName" />
+                    <h:inputText id="lastName" value="#{nurseController.selected.lastName}" title="#{bundle.EditNurseTitle_lastName}" />
+                    <h:outputLabel value="#{bundle.EditNurseLabel_username}" for="username" />
+                    <h:inputText id="username" value="#{nurseController.selected.username}" title="#{bundle.EditNurseTitle_username}" />
+                    <h:outputLabel value="#{bundle.EditNurseLabel_password}" for="password" />
+                    <h:inputText id="password" value="#{nurseController.selected.password}" title="#{bundle.EditNurseTitle_password}" />
+                    <h:outputLabel value="#{bundle.EditNurseLabel_phone}" for="phone" />
+                    <h:inputText id="phone" value="#{nurseController.selected.phone}" title="#{bundle.EditNurseTitle_phone}" />
+                    <h:outputLabel value="#{bundle.EditNurseLabel_gender}" for="gender" />
+                    <h:inputText id="gender" value="#{nurseController.selected.gender}" title="#{bundle.EditNurseTitle_gender}" />
+                </h:panelGrid>
+                <h:commandLink action="#{nurseController.update}" value="#{bundle.EditNurseSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditNurseViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{nurseController.prepareList}" value="#{bundle.EditNurseShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditNurseIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

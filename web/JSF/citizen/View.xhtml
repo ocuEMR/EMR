@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewCitizenTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCitizenLabel_id}"/>
+                    <h:outputText value="#{citizenController.selected.id}" title="#{bundle.ViewCitizenTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewCitizenLabel_nsn}"/>
+                    <h:outputText value="#{citizenController.selected.nsn}" title="#{bundle.ViewCitizenTitle_nsn}"/>
+                    <h:outputText value="#{bundle.ViewCitizenLabel_firstName}"/>
+                    <h:outputText value="#{citizenController.selected.firstName}" title="#{bundle.ViewCitizenTitle_firstName}"/>
+                    <h:outputText value="#{bundle.ViewCitizenLabel_lastName}"/>
+                    <h:outputText value="#{citizenController.selected.lastName}" title="#{bundle.ViewCitizenTitle_lastName}"/>
+                    <h:outputText value="#{bundle.ViewCitizenLabel_birthDate}"/>
+                    <h:outputText value="#{citizenController.selected.birthDate}" title="#{bundle.ViewCitizenTitle_birthDate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewCitizenLabel_placeOfBirth}"/>
+                    <h:outputText value="#{citizenController.selected.placeOfBirth}" title="#{bundle.ViewCitizenTitle_placeOfBirth}"/>
+                    <h:outputText value="#{bundle.ViewCitizenLabel_fatherName}"/>
+                    <h:outputText value="#{citizenController.selected.fatherName}" title="#{bundle.ViewCitizenTitle_fatherName}"/>
+                    <h:outputText value="#{bundle.ViewCitizenLabel_motherName}"/>
+                    <h:outputText value="#{citizenController.selected.motherName}" title="#{bundle.ViewCitizenTitle_motherName}"/>
+                    <h:outputText value="#{bundle.ViewCitizenLabel_gender}"/>
+                    <h:outputText value="#{citizenController.selected.gender}" title="#{bundle.ViewCitizenTitle_gender}"/>
+                    <h:outputText value="#{bundle.ViewCitizenLabel_phoneNumber}"/>
+                    <h:outputText value="#{citizenController.selected.phoneNumber}" title="#{bundle.ViewCitizenTitle_phoneNumber}"/>
+                    <h:outputText value="#{bundle.ViewCitizenLabel_email}"/>
+                    <h:outputText value="#{citizenController.selected.email}" title="#{bundle.ViewCitizenTitle_email}"/>
+                    <h:outputText value="#{bundle.ViewCitizenLabel_maritalStatus}"/>
+                    <h:outputText value="#{citizenController.selected.maritalStatus}" title="#{bundle.ViewCitizenTitle_maritalStatus}"/>
+                    <h:outputText value="#{bundle.ViewCitizenLabel_nationality}"/>
+                    <h:outputText value="#{citizenController.selected.nationality}" title="#{bundle.ViewCitizenTitle_nationality}"/>
+                    <h:outputText value="#{bundle.ViewCitizenLabel_address}"/>
+                    <h:outputText value="#{citizenController.selected.address}" title="#{bundle.ViewCitizenTitle_address}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{citizenController.destroyAndView}" value="#{bundle.ViewCitizenDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewCitizenEditLink}"/>
+                <br />
+                <h:commandLink action="#{citizenController.prepareCreate}" value="#{bundle.ViewCitizenCreateLink}" />
+                <br />
+                <h:commandLink action="#{citizenController.prepareList}" value="#{bundle.ViewCitizenShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewCitizenIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
